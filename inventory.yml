@@ -1,0 +1,8 @@
+myhosts:
+  hosts:
+    fedora_1:
+      ansible_host: 192.168.124.205
+    fedora_2:
+      ansible_host: 192.168.124.135
+    fedora_3:
+      ansible_host: 192.168.124.20
