@@ -1,14 +1,28 @@
 ---
-- hosts: fedora_2, fedora_3
+- hosts: fedora_2
   become: yes
   tasks:
-    - name: install httpd
+    - name: install httpd on fedora_2
       dnf: name=httpd state=latest
     - name: start httpd
       service: 
         name: httpd
         state: started
-    - name: copy index.html for apache to serve
-      ansible.builtin.copy:
-        src: ~/Desktop/Ansible/brain_control/ansible_files/index.html
+    - name: copy index.html for apache to serve on fedora_2
+      copy:
+        src: ~/Desktop/Ansible/brain_control/ansible_files/fedora_2/index.html
         dest: /var/www/html/
+
+- hosts: fedora_3
+  become:  yes
+  tasks:
+    - name: install httpd on fedora_3
+      dnf: name=httpd state=latest
+    - name: start httpd on fedora_3
+      service: 
+        name: httpd
+        state: started
+    - name: copy index.html for apache to serve on fedora_3
+      copy:
+        src: ~/Desktop/Ansible/brain_control/ansible_files/fedora_3/index.html
+        dest: /var/www/html
