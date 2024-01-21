@@ -1,0 +1,14 @@
+---
+- hosts: fedora_2, fedora_3
+  become: yes
+  tasks:
+    - name: install httpd
+      dnf: name=httpd state=latest
+    - name: start httpd
+      service: 
+        name: httpd
+        state: started
+    - name: copy index.html for apache to serve
+      ansible.builtin.copy:
+        src: ~/Desktop/Ansible/brain_control/ansible_files/index.html
+        dest: /var/www/html/
