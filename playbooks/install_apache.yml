@@ -10,8 +10,13 @@
         state: started
     - name: copy index.html for apache to serve on fedora_2
       copy:
-        src: ~/Desktop/Ansible/brain_control/ansible_files/fedora_2/index.html
-        dest: /var/www/html/
+        src: "{{ item.src_fedora_2 }}"
+        dest: "{{ item.dest_fedora_2 }}"
+      with_items:
+        - src_fedora_2: ~/Desktop/Ansible/brain_control/ansible_files/fedora_2/index.html
+          dest_fedora_2: /var/www/html/
+            #- src_fedora_3: ~/Desktop/Ansible/brain_control/ansible_files/fedora_3/index.html
+            #dest: /var/www/html/
 
 - hosts: fedora_3
   become:  yes

@@ -6,3 +6,13 @@ myhosts:
       ansible_host: 192.168.124.135
     fedora_3:
       ansible_host: 192.168.124.20
+
+nginxservers:
+  hosts:
+    fedora_1:
+
+apacheservers:
+  hosts:
+    fedora_2:
+    fedora_3:
+        
