@@ -1,0 +1,14 @@
+---
+
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Golang
+      dnf: name=golang state=latest
+
+    - name: Retrieve program from Git
+      ansible.builtin.git:
+        repo: 'https://github.com/agpelkey/fifo'
+        dest: /u/apelkey/bin/fifo/
+        refspec: '+refs/pull/*:refs/heads/*'
+

@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo 
+
+  tasks: 
+    - name: Copy tar file to webservers
+      copy:
+        src: "/root/deploy.tar.gz"
+        dest: "/opt"
+

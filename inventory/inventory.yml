@@ -9,10 +9,14 @@ myhosts:
 
 nginxservers:
   hosts:
-    fedora_1:
+    fedora_3:
 
 apacheservers:
   hosts:
     fedora_2:
     fedora_3:
         
+webservers:
+  hosts:
+    fedora_1:
+    fedora_2:
